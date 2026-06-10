@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Question for You ❤️</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('background.jpeg') no-repeat center center fixed;background-size: cover;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    h1 {
+        color: #fff;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    }
+
+    button {
+        padding: 15px 35px;
+        font-size: 1.2em;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    #yesBtn {
+        background: #4CAF50;
+        color: white;
+        margin-right: 20px;
+    }
+
+    #noBtn {
+        background: #f44336;
+        color: white;
+        position: absolute;
+    }
+
+    #message {
+        margin-top: 30px;
+        color: white;
+        font-size: 2em;
+        display: none;
+    }
+</style>
+</head>
+<body>
+<button onclick="document.getElementById('music').play()">
+    🎵 Play Our Song
+</button>
+
+<audio id="music" loop>
+    <source src="love.mp3" type="audio/mpeg">
+</audio>
+<div class="container">
+    <h1>Will you go on a date with me? ❤️</h1>
+<h1>My dearest Damilola Morenikeji Rachel, every moment with you is special. Will you make me the happiest man and go on a date with me? 🌹❤️ Try pressing the No and win 300Euro </h1>
+<img src="couple.jpeg" alt="Us together"
+     style="width:250px; border-radius:20px;
+     box-shadow:0 5px 20px rgba(0,0,0,0.4);
+     margin-bottom:30px;">
+    <button id="yesBtn">Yes! 🥰</button>
+    <button id="noBtn">No 😅</button>
+    <div id="message">Yaaay! I can't wait! ❤️🌹<br><br>
+		You just made my day! ❤️<br><br>
+    Get ready for an unforgettable date. 🌹✨
+</div>
+    <div id="message">It has been one full year of Bliss with you ife. Thank you for honestly being my sunshine! ❤️🌹</div>	
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const message = document.getElementById("message");
+
+function moveButton() {
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+}
+
+// Move when the cursor gets near
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("touchstart", function(e){
+    e.preventDefault();
+    moveButton();
+});
+
+yesBtn.addEventListener("click", function() {
+    document.body.innerHTML = `
+        <div style="
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            color:white;
+            font-family:Arial;
+            text-align:center;">
+            <h1>❤️ She Said YES! ❤️</h1>
+            <h2>Our adventure begins now... 🌹✨</h2>
+            <img src="couple.jpeg"
+                 style="width:300px; border-radius:20px;
+                 margin-top:20px; box-shadow:0 5px 20px rgba(0,0,0,0.4);">
+        </div>
+    `;
+});});
+</script>
+<script>
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.innerHTML = "❤️";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = window.innerHeight + "px";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    heart.style.transition = "transform 4s linear, opacity 4s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.style.transform = `translateY(-${window.innerHeight + 100}px)`;
+        heart.style.opacity = "0";
+    }, 50);
+
+    setTimeout(() => heart.remove(), 4000);
+}, 500);
+</script>
+</body>
+</html>

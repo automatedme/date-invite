@@ -87,8 +87,9 @@ const yesBtn = document.getElementById("yesBtn");
 
 // Set an initial position for the No button
 noBtn.style.position = "fixed";
-noBtn.style.left = "60%";
-noBtn.style.top = "60%";
+noBtn.style.left = "70vw";
+noBtn.style.top = "75vh";
+moveButton();
 
 // Function to move the button to a random location
 function moveButton() {
@@ -120,6 +121,9 @@ document.addEventListener("mousemove", function(event) {
         moveButton();
     }
 });
+
+// Backup: if the cursor somehow reaches the button, move it again
+noBtn.addEventListener("mouseover", moveButton);
 
 // For phones/tablets
 noBtn.addEventListener("touchstart", function(e) {
